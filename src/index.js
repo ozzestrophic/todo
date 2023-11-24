@@ -30,7 +30,22 @@ const inbox = [];
 
 // create task element from the object
 function createTaskElement() {
-  const newTask = new TaskObj();
+  const taskName = document.querySelector("#taskName");
+  const descField = document.querySelector("#descField");
+  const prioritySelect = document.querySelector("#prioritySelect");
+  const deadlineSelect = document.querySelector("#deadlineSelect");
+
+  const newTaskObject = new TaskObj(
+    taskName.value,
+    descField.value,
+    prioritySelect.value,
+    deadlineSelect.value
+  );
+
+  return newTaskObject;
 }
+
+const confirmBtn = document.querySelector("#confirmBtn");
+confirmBtn.addEventListener("click", console.log(createTaskElement()));
 
 // loop the create function to draw the page from the array

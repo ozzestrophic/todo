@@ -106,8 +106,7 @@ main {
 /* form */
 
 #dialogBox {
-  position: fixed;
-  top: 25%;
+  /* position: fixed; */
   border: none;
   background-color: white;
   width: 400px;
@@ -133,6 +132,7 @@ main {
   border: solid gainsboro 1px;
   padding: 8px;
   border-radius: 8px;
+  width: 250px;
 }
 
 .btnDiv {
