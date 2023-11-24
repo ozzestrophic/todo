@@ -50,6 +50,7 @@
             <label for="taskName">Task Name</label>
             <input
               class="textBox"
+              id="taskName"
               type="text"
               placeholder="Enter task name"
               name="taskName"
@@ -67,16 +68,16 @@
             ></textarea>
           </div>
           <div class="flex">
-            <label for="priority">Priority</label>
-            <select name="priority" id="priority" class="selectBox">
+            <label for="prioritySelect">Priority</label>
+            <select name="prioritySelect" id="prioritySelect" class="selectBox">
               <option value="low">Low</option>
               <option value="normal">Normal</option>
               <option value="high">High</option>
             </select>
           </div>
           <div class="flex">
-            <label for="deadline">Deadline</label>
-            <input type="date" name="deadline" id="deadline" />
+            <label for="deadlineSelect">Deadline</label>
+            <input type="date" name="deadlineSelect" id="deadlineSelect" />
           </div>
           <div class="btnDiv">
             <button type="submit" class="btn">Add Task</button>

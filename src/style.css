@@ -95,7 +95,8 @@ main {
   border-radius: 8px;
 }
 
-#deadline {
+#deadline,
+#deadlineSelect {
   border: solid 1px gainsboro;
   padding: 8px;
   border-radius: 8px;
