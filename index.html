@@ -5,5 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My to-do app</title>
   </head>
-  <body><script defer src="main.js"></script></body>
+  <body>
+    <main>
+      <div class="side-bar">
+        <ul>
+          <li class="projects"><a href="">Inbox</a></li>
+          <li class="projects"><a href="">Project 1</a></li>
+        </ul>
+      </div>
+      <div class="content">
+        <h1>To-Do app</h1>
+        <div class="separator"></div>
+        <button id="newTask">New Task</button>
+        <!-- task list -->
+        <div class="taskList">
+          <div class="taskCard">
+            <div class="taskHeading">
+              <input type="checkbox" name="" id="" />
+              <div>Task name</div>
+            </div>
+            <div class="taskPrio">
+              <div class="prioNormal">Normal</div>
+              <input type="date" name="" id="deadline" />
+            </div>
+          </div>
+          <div class="taskCard">
+            <div class="taskHeading">
+              <input type="checkbox" name="" id="" />
+              <div>Task name</div>
+            </div>
+            <div class="taskPrio">
+              <div class="prioNormal">Normal</div>
+              <input type="date" name="" id="deadline" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- new task form -->
+      <dialog id="dialogBox">
+        <form action="" class="form-container">
+          <h1>New Task</h1>
+          <div class="flex">
+            <label for="taskName">Task Name</label>
+            <input
+              class="textBox"
+              type="text"
+              placeholder="Enter task name"
+              name="taskName"
+              required
+            />
+          </div>
+          <div class="flex">
+            <label for="desc">Description</label>
+            <textarea
+              name="desc"
+              id="descField"
+              cols="30"
+              rows="10"
+              class="textArea"
+            ></textarea>
+          </div>
+          <div class="flex">
+            <label for="priority">Priority</label>
+            <select name="priority" id="priority" class="selectBox">
+              <option value="low">Low</option>
+              <option value="normal">Normal</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="flex">
+            <label for="deadline">Deadline</label>
+            <input type="date" name="deadline" id="deadline" />
+          </div>
+          <div class="btnDiv">
+            <button type="submit" class="btn">Add Task</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">
+              Close
+            </button>
+          </div>
+        </form>
+      </dialog>
+    </main>
+  <script defer src="main.js"></script></body>
 </html>
