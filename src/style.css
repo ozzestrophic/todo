@@ -1,4 +1,157 @@
-div {
-  color: red;
-  text-decoration: underline;
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  height: 100svh;
+  box-sizing: border-box;
+}
+
+.side-bar {
+  padding-left: 24px;
+  padding-top: 64px;
+  border-right: solid 1px gainsboro;
+}
+
+.side-bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.side-bar li {
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+.side-bar li:hover {
+  background-color: rgb(229, 229, 229);
+}
+
+.side-bar a {
+  color: rgb(95, 95, 95);
+  width: 100%;
+  text-decoration: none;
+}
+
+/* Style the content */
+
+.content {
+  padding: 24px;
+}
+
+.separator {
+  height: 1px;
+  background-color: gainsboro;
+}
+
+#newTask {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgb(76, 70, 196);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 16px;
+}
+
+#newTask:hover {
+  background-color: rgb(111, 105, 235);
+}
+
+/* style the cards */
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.taskCard {
+  border: solid 1px gainsboro;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+}
+
+.taskHeading,
+.taskPrio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.prioNormal {
+  font-size: 14px;
+  color: white;
+  background-color: rgb(24, 160, 96);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+#deadline {
+  border: solid 1px gainsboro;
+  padding: 8px;
+  border-radius: 8px;
+  color: gray;
+}
+
+/* form */
+
+#dialogBox {
+  position: fixed;
+  top: 25%;
+  border: none;
+  background-color: white;
+  width: 400px;
+  border: solid 1px gainsboro;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.textBox,
+.selectBox,
+.textArea {
+  border: solid gainsboro 1px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.btnDiv {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgb(76, 70, 196);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 16px;
+  width: 100%;
+}
+.btn.cancel {
+  background-color: rgb(255, 255, 255);
+  color: rgb(76, 70, 196);
+  border: solid 2px rgb(76, 70, 196);
 }
