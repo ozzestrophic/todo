@@ -2,6 +2,7 @@ import "./style.css";
 
 const btn = document.querySelector("#newTask");
 const dialogbox = document.querySelector("#dialogBox");
+const myForm = document.querySelector("#myForm");
 btn.addEventListener("click", () => dialogbox.showModal());
 
 // create class for tasks
@@ -24,7 +25,6 @@ class TaskObj {
 // method to delete?? or this should be done through the array
 
 // array for each project
-const inbox = [];
 
 // add object to the array
 
@@ -44,10 +44,50 @@ function createTaskObject() {
 
   return newTaskObject;
 }
+const inbox = [];
 
-function createTaskElement() {}
+function addToProjectArray(arry, obj) {
+  arry.push(obj);
+}
+
+function createTask() {
+  addToProjectArray(inbox, createTaskObject());
+
+  myForm.reset();
+  dialogbox.close();
+  drawList(inbox);
+  console.log(inbox);
+}
+
+function createTaskElement(obj) {
+  const taskElement = document.createElement("div");
+  taskElement.classList.add("taskCard");
+  taskElement.innerHTML = `<div class="taskHeading">
+              <input type="checkbox" name="" id="" />
+              <div>${obj.name}</div>
+            </div>
+            <div class="taskPrio">
+              <div class="prio${obj.priority}">${obj.priority}</div>
+              <input type="date" name="" id="deadline" value="${obj.deadline}" disabled/>
+              <ion-icon id="editBtn" name="create-outline"></ion-icon>
+              <ion-icon id="deleteBtn" name="trash-outline"></ion-icon>
+            </div>`;
+  return taskElement;
+}
+
+function drawList(arry) {
+  const taskListElements = arry.map(createTaskElement);
+  const taskList = document.querySelector(".taskList");
+
+  taskListElements.map(function (element) {
+    taskList.appendChild(element);
+  });
+}
 
 const confirmBtn = document.querySelector("#confirmBtn");
-confirmBtn.addEventListener("click", console.log(createTaskObject()));
+confirmBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  createTask();
+});
 
 // loop the create function to draw the page from the array

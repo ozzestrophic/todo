@@ -87,10 +87,24 @@ main {
   gap: 0.5rem;
 }
 
-.prioNormal {
+.prionormal {
   font-size: 14px;
   color: white;
   background-color: rgb(24, 160, 96);
+  padding: 8px;
+  border-radius: 8px;
+}
+.priolow {
+  font-size: 14px;
+  color: white;
+  background-color: rgb(190, 152, 16);
+  padding: 8px;
+  border-radius: 8px;
+}
+.priohigh {
+  font-size: 14px;
+  color: white;
+  background-color: rgb(160, 24, 24);
   padding: 8px;
   border-radius: 8px;
 }
