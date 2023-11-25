@@ -37,6 +37,17 @@ function addNewProjectToArray(event) {
   event.preventDefault();
   const textBox = document.querySelector("#newProjectTextBox");
   confirmBtn.myParam = textBox.value;
+  for (let x in arrayOfProjects) {
+    if (textBox.value == arrayOfProjects[x]) {
+      const newProjectDialogBox = document.querySelector(
+        "#newProjectDialogBox"
+      );
+
+      newProjectDialogBox.close();
+      createSideBarList();
+      return;
+    }
+  }
   arrayOfProjects.push(textBox.value);
   createSideBarList();
 }
