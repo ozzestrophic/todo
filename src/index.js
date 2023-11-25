@@ -1,6 +1,6 @@
 import "./style.css";
-import { deleteTask } from "./listBtns";
-import { createTaskDetails, addFunctionsToButton } from "./taskDetails";
+// import { addDeleteToButton } from "./deleteTask";
+import { addDetailsFunctionTobutton } from "./taskDetails";
 
 const btn = document.querySelector("#newTask");
 const dialogbox = document.querySelector("#dialogBox");
@@ -71,11 +71,10 @@ function createTaskElement(obj, index, tasksArray) {
               <div class="prio${obj.priority}">${obj.priority}</div>
               <input type="date" name="" id="deadline" value="${obj.deadline}" disabled/>
               <ion-icon id="editBtn" name="create-outline"></ion-icon>
-              <ion-icon id="deleteBtn" name="trash-outline"></ion-icon>
+              <ion-icon id="deleteBtn${index}" name="trash-outline"></ion-icon>
             </div>`;
   return taskElement;
 }
-
 function drawList(tasksArray) {
   const taskListElements = tasksArray.map(createTaskElement);
   const taskList = document.querySelector(".taskList");
@@ -85,7 +84,8 @@ function drawList(tasksArray) {
     taskList.appendChild(element);
 
     // add logic to list buttons
-    addFunctionsToButton(index, tasksArray);
+    addDetailsFunctionTobutton(index);
+    addDeleteToButton(index, tasksArray);
   });
 }
 
@@ -96,3 +96,14 @@ confirmBtn.addEventListener("click", function (event) {
 });
 
 // loop the create function to draw the page from the array
+
+function deleteTask(event) {
+  const index = event.target.parentElement.dataset.index;
+  inbox.splice(index, 1);
+  drawList(inbox);
+}
+
+function addDeleteToButton(index) {
+  const deleteBtn = document.querySelector(`#deleteBtn${index}`);
+  deleteBtn.addEventListener("click", deleteTask);
+}

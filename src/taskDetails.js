@@ -17,14 +17,13 @@ function createTaskDetails(name, desc) {
   return taskDetails;
 }
 
-function toggleTaskDetails(event) {
-  const index = event.target.parentElement.dataset.index;
+function showTaskDetails(event) {
+  // const index = event.target.parentElement.dataset.index;
   const name = event.target.parentElement.dataset.name;
   const desc = event.target.parentElement.dataset.desc;
-  console.log(name, desc);
+  const detailsDialogs = document.querySelector(".detailsDialogs");
 
   const taskDetails = createTaskDetails(name, desc);
-  const detailsDialogs = document.querySelector(".detailsDialogs");
 
   detailsDialogs.innerHTML = "";
   detailsDialogs.appendChild(taskDetails);
@@ -38,9 +37,9 @@ function toggleTaskDetails(event) {
   });
 }
 
-function addFunctionsToButton(index, array) {
+function addDetailsFunctionTobutton(index) {
   const detailsBtn = document.querySelector(`#detailsBtn${index}`);
-  detailsBtn.addEventListener("click", toggleTaskDetails);
+  detailsBtn.addEventListener("click", showTaskDetails);
 }
 
-export { createTaskDetails, addFunctionsToButton };
+export { createTaskDetails, addDetailsFunctionTobutton };
