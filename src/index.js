@@ -1,4 +1,6 @@
 import "./style.css";
+import { deleteTask } from "./listBtns";
+import { createTaskDetails } from "./taskDetails";
 
 const btn = document.querySelector("#newTask");
 const dialogbox = document.querySelector("#dialogBox");
@@ -26,8 +28,6 @@ class TaskObj {
 
 // array for each project
 
-// add object to the array
-
 // create task element from the object
 function createTaskObject() {
   const taskName = document.querySelector("#taskName");
@@ -47,7 +47,7 @@ function createTaskObject() {
 const inbox = [];
 
 function addToProjectArray(arry, obj) {
-  arry.push(obj);
+  arry.unshift(obj);
 }
 
 function createTask() {
@@ -59,7 +59,7 @@ function createTask() {
   console.log(inbox);
 }
 
-function createTaskElement(obj) {
+function createTaskElement(obj, index, arry) {
   const taskElement = document.createElement("div");
   taskElement.classList.add("taskCard");
   taskElement.innerHTML = `<div class="taskHeading">
@@ -67,11 +67,17 @@ function createTaskElement(obj) {
               <div>${obj.name}</div>
             </div>
             <div class="taskPrio">
+              <ion-icon id="detailsBtn" name="information-circle-outline" data-obj="${JSON.stringify(
+                obj
+              )}"></ion-icon>
               <div class="prio${obj.priority}">${obj.priority}</div>
-              <input type="date" name="" id="deadline" value="${obj.deadline}" disabled/>
+              <input type="date" name="" id="deadline" value="${
+                obj.deadline
+              }" disabled/>
               <ion-icon id="editBtn" name="create-outline"></ion-icon>
               <ion-icon id="deleteBtn" name="trash-outline"></ion-icon>
             </div>`;
+
   return taskElement;
 }
 
@@ -79,6 +85,7 @@ function drawList(arry) {
   const taskListElements = arry.map(createTaskElement);
   const taskList = document.querySelector(".taskList");
 
+  taskList.innerHTML = "";
   taskListElements.map(function (element) {
     taskList.appendChild(element);
   });

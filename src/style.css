@@ -170,3 +170,15 @@ main {
   color: rgb(76, 70, 196);
   border: solid 2px rgb(76, 70, 196);
 }
+
+.taskDetails {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  border: none;
+  background-color: white;
+  width: 400px;
+  border: solid 1px gainsboro;
+  border-radius: 1rem;
+  padding: 1rem;
+}
