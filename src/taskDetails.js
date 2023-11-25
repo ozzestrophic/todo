@@ -2,7 +2,7 @@ function createTaskDetails(name, desc) {
   const taskDetails = document.createElement("dialog");
   taskDetails.classList.add("taskDetails");
   taskDetails.id = `detailsDialogBox`;
-  taskDetails.innerHTML = `<div class="taskDetails">
+  taskDetails.innerHTML = `<form class="taskDetails">
         <div class="flex">
           <p>Task Name</p>
           <p id="detailsTaskName">${name}</p>
@@ -11,15 +11,10 @@ function createTaskDetails(name, desc) {
           <p>Task Description</p>
           <p id="detailsTaskdesc">${desc}</p>
         </div>
-      </div>`;
+        <button type="cancel" id="detailsClose" class="btn cancel">Close</button>
+        </form>
+        `;
   return taskDetails;
-}
-
-function addDetailsDialogsToDiv(taskDetails) {
-  const detailsDialogs = document.querySelector(".detailsDialogs");
-  // detailsDialogs.innerHTML = "";
-  detailsDialogs.appendChild(taskDetails);
-  console.log(taskDetails);
 }
 
 function toggleTaskDetails(event) {
@@ -30,11 +25,17 @@ function toggleTaskDetails(event) {
 
   const taskDetails = createTaskDetails(name, desc);
   const detailsDialogs = document.querySelector(".detailsDialogs");
-  // detailsDialogs.innerHTML = taskDetails;
+
   detailsDialogs.innerHTML = "";
   detailsDialogs.appendChild(taskDetails);
   const detailsDialog = document.querySelector(`#detailsDialogBox`);
   detailsDialog.showModal();
+
+  const closeDetailsButton = document.querySelector("#detailsClose");
+  closeDetailsButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    detailsDialog.close();
+  });
 }
 
 function addFunctionsToButton(index, array) {
