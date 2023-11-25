@@ -66,11 +66,12 @@ function createTaskElement(obj, index, tasksArray) {
               <ion-icon id="detailsBtn${index}" name="information-circle-outline"></ion-icon>
               <div class="prio${obj.priority}">${obj.priority}</div>
               <input type="date" name="" id="deadline" value="${obj.deadline}" disabled/>
-              <ion-icon id="editBtn" name="create-outline"></ion-icon>
+              <ion-icon id="editBtn${index}" name="create-outline"></ion-icon>
               <ion-icon id="deleteBtn${index}" name="trash-outline"></ion-icon>
             </div>`;
   return taskElement;
 }
+
 function drawList(tasksArray) {
   const taskListElements = tasksArray.map(createTaskElement);
   const taskList = document.querySelector(".taskList");
@@ -81,7 +82,8 @@ function drawList(tasksArray) {
 
     // add logic to list buttons
     addDetailsFunctionTobutton(index);
-    addDeleteToButton(index, tasksArray);
+    addDeleteToButton(index);
+    addEditToButton(index);
   });
 }
 
@@ -92,6 +94,49 @@ confirmBtn.addEventListener("click", function (event) {
 });
 
 // edit function
+
+function addEditToButton(index) {
+  const editBtn = document.querySelector(`#editBtn${index}`);
+  editBtn.addEventListener("click", openEditDialog);
+}
+
+function openEditDialog(event) {
+  const editDialogBox = document.querySelector("#editDialogBox");
+  editDialogBox.showModal();
+  createConfirmBtn(event);
+}
+
+function editTask(event) {
+  event.preventDefault();
+  editDialogBox.close();
+  const index = event.target.myParam;
+
+  loadEditorMethod(index);
+
+  drawList(inbox);
+}
+
+function loadEditorMethod(index) {
+  const taskName = document.querySelector("#taskNameEdit");
+  const descField = document.querySelector("#descFieldEdit");
+  const prioritySelect = document.querySelector("#prioritySelectEdit");
+  const deadlineSelect = document.querySelector("#deadlineSelectEdit");
+
+  inbox[index].editTask(
+    taskName.value,
+    descField.value,
+    prioritySelect.value,
+    deadlineSelect.value
+  );
+}
+
+function createConfirmBtn(event) {
+  const confirmEditBtn = document.querySelector("#confirmEditBtn");
+  const index = event.target.parentElement.dataset.index;
+
+  confirmEditBtn.myParam = index;
+  confirmEditBtn.addEventListener("click", editTask);
+}
 
 // open array at index to get the object
 // open the dialog box passing the old values
