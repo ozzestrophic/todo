@@ -126,7 +126,8 @@ main {
 /* form */
 
 #dialogBox,
-#editDialogBox {
+#editDialogBox,
+#newProjectDialogBox {
   /* position: fixed; */
   border: none;
   background-color: white;
@@ -145,6 +146,7 @@ main {
 .flex {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .textBox,
@@ -156,13 +158,19 @@ main {
   width: 250px;
 }
 
+.side-bar .textBox {
+  flex: 1;
+  margin-left: 16px;
+}
+
 .btnDiv {
   display: flex;
   justify-content: center;
   gap: 16px;
 }
 
-.btn {
+.btn,
+.newPrjBtn {
   cursor: pointer;
   margin-top: 16px;
   margin-bottom: 16px;
@@ -177,6 +185,21 @@ main {
   background-color: rgb(255, 255, 255);
   color: rgb(76, 70, 196);
   border: solid 2px rgb(76, 70, 196);
+}
+
+.side-bar .btn {
+  /* margin-right: 24px; */
+  border: none;
+  border-radius: 0;
+  text-align: left;
+  font-size: 1rem;
+  color: gray;
+  border-top: solid 1px gainsboro;
+}
+
+.side-bar .btn:hover {
+  background-color: rgb(76, 70, 196);
+  color: white;
 }
 
 .taskDetails {
