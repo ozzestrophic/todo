@@ -6,7 +6,7 @@ import { addEditToButton } from "./editTask";
 const btn = document.querySelector("#newTask");
 const dialogbox = document.querySelector("#dialogBox");
 const myForm = document.querySelector("#myForm");
-btn.addEventListener("click", () => dialogbox.showModal());
+btn.addEventListener("click", openNewTaskDialog);
 
 // create class for tasks
 class TaskObj {
@@ -27,23 +27,52 @@ class TaskObj {
   }
 }
 
+function openNewTaskDialog() {
+  dialogbox.showModal();
+  const projectSelect = document.querySelector("#projectSelect");
+  projectSelect.innerHTML = "";
+
+  for (let x in arrayOfProjects) {
+    const option = document.createElement("option");
+    option.innerText = arrayOfProjects[x];
+    option.value = arrayOfProjects[x];
+    projectSelect.appendChild(option);
+    console.log(arrayOfProjects[x]);
+  }
+
+  const cancelBtn = document.querySelector("#cancelBtn");
+
+  cancelBtn.removeEventListener("click", closeModal);
+  cancelBtn.addEventListener("click", closeModal);
+}
+
+function closeModal(event) {
+  event.preventDefault();
+  dialogbox.close();
+}
+
 // create task element from the object
 function createTaskObject() {
   const taskName = document.querySelector("#taskName");
   const descField = document.querySelector("#descField");
   const prioritySelect = document.querySelector("#prioritySelect");
   const deadlineSelect = document.querySelector("#deadlineSelect");
+  const projectSelect = document.querySelector("#projectSelect");
 
   const newTaskObject = new TaskObj(
     taskName.value,
     descField.value,
     prioritySelect.value,
-    deadlineSelect.value
+    deadlineSelect.value,
+    projectSelect.value
   );
 
   return newTaskObject;
 }
+
 const inbox = [];
+const arrayOfProjects = ["inbox", "project 1"];
+let currentProject = arrayOfProjects[0];
 
 function addToProjectArray(tasksArray, obj) {
   tasksArray.unshift(obj);
@@ -59,6 +88,9 @@ function createTask() {
 }
 
 function createTaskElement(obj, index, tasksArray) {
+  if (obj.project !== currentProject) {
+    return;
+  }
   const taskElement = document.createElement("div");
   taskElement.classList.add("taskCard");
   taskElement.innerHTML = `<div class="taskHeading">
@@ -81,6 +113,9 @@ function drawList(tasksArray) {
 
   taskList.innerHTML = "";
   taskListElements.map(function (element, index) {
+    if (!element) {
+      return;
+    }
     taskList.appendChild(element);
 
     // add logic to list buttons
@@ -103,4 +138,4 @@ confirmBtn.addEventListener("click", function (event) {
 // apply method passing new values
 // drawList again
 
-export { inbox, drawList };
+export { inbox, arrayOfProjects, drawList };
