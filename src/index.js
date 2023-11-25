@@ -24,10 +24,6 @@ class TaskObj {
   }
 }
 
-// method to delete?? or this should be done through the array
-
-// array for each project
-
 // create task element from the object
 function createTaskObject() {
   const taskName = document.querySelector("#taskName");
@@ -94,5 +90,12 @@ confirmBtn.addEventListener("click", function (event) {
   event.preventDefault();
   createTask();
 });
+
+// edit function
+
+// open array at index to get the object
+// open the dialog box passing the old values
+// apply method passing new values
+// drawList again
 
 export { inbox, drawList };

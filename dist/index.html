@@ -73,6 +73,62 @@
           </div>
           <div class="btnDiv">
             <button type="submit" id="confirmBtn" class="btn">Add Task</button>
+            <button type="button" class="btn cancel" onclick="close()">
+              Close
+            </button>
+          </div>
+        </form>
+      </dialog>
+
+      <!-- edit task form -->
+      <dialog id="dialogBox">
+        <form action="" class="form-container" id="myForm">
+          <h1>Edit task</h1>
+          <div class="flex">
+            <label for="taskNameEdit">Task Name</label>
+            <input
+              class="textBox"
+              id="taskNameEdit"
+              type="text"
+              placeholder="Enter task name"
+              name="taskNameEdit"
+              required
+            />
+          </div>
+          <div class="flex">
+            <label for="descEdit">Description</label>
+            <textarea
+              name="descEdit"
+              id="descFieldEdit"
+              cols="30"
+              rows="10"
+              class="textArea"
+            ></textarea>
+          </div>
+          <div class="flex">
+            <label for="prioritySelectEdit">Priority</label>
+            <select
+              name="prioritySelectEdit"
+              id="prioritySelectEdit"
+              class="selectBox"
+            >
+              <option value="low">Low</option>
+              <option value="normal">Normal</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="flex">
+            <label for="deadlineSelectEdit">Deadline</label>
+            <input
+              type="date"
+              name="deadlineSelectEdit"
+              id="deadlineSelectEdit"
+            />
+          </div>
+          <div class="btnDiv">
+            <button type="submit" id="confirmEditBtn" class="btn">
+              Add Task
+            </button>
             <button type="button" class="btn cancel" onclick="closeForm()">
               Close
             </button>

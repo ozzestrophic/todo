@@ -51,6 +51,7 @@ main {
 }
 
 #newTask {
+  cursor: pointer;
   margin-top: 16px;
   margin-bottom: 16px;
   background-color: rgb(76, 70, 196);
@@ -156,6 +157,7 @@ main {
 }
 
 .btn {
+  cursor: pointer;
   margin-top: 16px;
   margin-bottom: 16px;
   background-color: rgb(76, 70, 196);
@@ -185,4 +187,13 @@ main {
 
 .detailsDialogs {
   position: fixed;
+}
+
+ion-icon {
+  font-size: 20px;
+}
+
+ion-icon:hover {
+  cursor: pointer;
+  color: rgb(76, 70, 196);
 }
