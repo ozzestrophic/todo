@@ -3,6 +3,7 @@ import { addDeleteToButton } from "./deleteTask";
 import { addDetailsFunctionTobutton } from "./taskDetails";
 import { addEditToButton } from "./editTask";
 import { createSideBarList } from "./sideBar";
+import { checked } from "./check";
 
 const btn = document.querySelector("#newTask");
 const dialogbox = document.querySelector("#dialogBox");
@@ -101,8 +102,8 @@ function createTaskElement(obj, index, tasksArray) {
   const taskElement = document.createElement("div");
   taskElement.classList.add("taskCard");
   taskElement.innerHTML = `<div class="taskHeading">
-              <input type="checkbox" name="" id="" />
-              <div>${obj.name}</div>
+              <input type="checkbox" name="" id="checkListElement"/>
+              <div class="task-Name">${obj.name}</div>
             </div>
             <div class="taskPrio" data-index="${index}"
             data-name="${obj.name}" data-desc="${obj.desc}"

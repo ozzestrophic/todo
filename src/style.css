@@ -86,6 +86,10 @@ main {
   border-radius: 0.5rem;
 }
 
+.task-Name.striked {
+  text-decoration: overline;
+}
+
 .taskHeading,
 .taskPrio {
   display: flex;
