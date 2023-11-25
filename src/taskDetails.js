@@ -11,6 +11,13 @@ function createTaskDetails(obj) {
           <p id="detailsTaskdesc">${obj.desc}</p>
         </div>
       </div>`;
+  console.log(obj);
+  console.log(taskDetails);
 }
 
-export { createTaskDetails };
+function addFunctionsToButton(index, array) {
+  const detailsBtn = document.querySelector(`#detailsBtn${index}`);
+  detailsBtn.addEventListener("click", createTaskDetails(array[index]));
+}
+
+export { createTaskDetails, addFunctionsToButton };
