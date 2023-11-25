@@ -59,21 +59,37 @@
               class="textArea"
             ></textarea>
           </div>
+          <!-- select priority -->
           <div class="flex">
             <label for="prioritySelect">Priority</label>
             <select name="prioritySelect" id="prioritySelect" class="selectBox">
               <option value="low">Low</option>
-              <option value="normal">Normal</option>
+              <option value="normal" selected="selected">Normal</option>
               <option value="high">High</option>
             </select>
           </div>
+          <!-- set deadline -->
           <div class="flex">
             <label for="deadlineSelect">Deadline</label>
             <input type="date" name="deadlineSelect" id="deadlineSelect" />
           </div>
+          <!-- select project -->
+          <div class="flex">
+            <label for="projectSelect">Project</label>
+            <select
+              name="projectSelect"
+              id="projectSelect"
+              class="selectBox"
+            ></select>
+          </div>
           <div class="btnDiv">
             <button type="submit" id="confirmBtn" class="btn">Add Task</button>
-            <button type="button" class="btn cancel" onclick="close()">
+            <button
+              type="cancel"
+              id="cancelBtn"
+              class="btn cancel"
+              onclick="close()"
+            >
               Close
             </button>
           </div>
@@ -125,11 +141,19 @@
               id="deadlineSelectEdit"
             />
           </div>
+          <div class="flex">
+            <label for="projectSelectEdit">Project</label>
+            <select
+              name="projectSelectEdit"
+              id="projectSelectEdit"
+              class="selectBox"
+            ></select>
+          </div>
           <div class="btnDiv">
             <button type="submit" id="confirmEditBtn" class="btn">
               Add Task
             </button>
-            <button type="button" class="btn cancel" onclick="closeForm()">
+            <button type="button" id="cancelEditBtn" class="btn cancel">
               Close
             </button>
           </div>
