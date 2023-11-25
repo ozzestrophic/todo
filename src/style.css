@@ -33,8 +33,13 @@ main {
   background-color: rgb(229, 229, 229);
 }
 
+.side-bar li.selected {
+  background-color: rgb(76, 70, 196);
+  color: white;
+}
+
 .side-bar a {
-  color: rgb(95, 95, 95);
+  /* color: rgb(95, 95, 95); */
   width: 100%;
   text-decoration: none;
 }

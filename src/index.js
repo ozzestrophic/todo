@@ -2,6 +2,7 @@ import "./style.css";
 import { addDeleteToButton } from "./deleteTask";
 import { addDetailsFunctionTobutton } from "./taskDetails";
 import { addEditToButton } from "./editTask";
+import { createSideBarList } from "./sideBar";
 
 const btn = document.querySelector("#newTask");
 const dialogbox = document.querySelector("#dialogBox");
@@ -74,6 +75,12 @@ const inbox = [];
 const arrayOfProjects = ["inbox", "project 1"];
 let currentProject = arrayOfProjects[0];
 
+function changeCurrentProject(event) {
+  currentProject = event.target.innerHTML;
+  createSideBarList();
+  drawList(inbox);
+}
+
 function addToProjectArray(tasksArray, obj) {
   tasksArray.unshift(obj);
 }
@@ -137,5 +144,12 @@ confirmBtn.addEventListener("click", function (event) {
 // open the dialog box passing the old values
 // apply method passing new values
 // drawList again
+createSideBarList();
 
-export { inbox, arrayOfProjects, drawList };
+export {
+  inbox,
+  arrayOfProjects,
+  currentProject,
+  changeCurrentProject,
+  drawList,
+};
