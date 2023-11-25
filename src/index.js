@@ -66,7 +66,7 @@ function createTaskElement(obj, index, tasksArray) {
               <input type="checkbox" name="" id="" />
               <div>${obj.name}</div>
             </div>
-            <div class="taskPrio" data-index="${index}" data-obj="${tasksArray}">
+            <div class="taskPrio" data-index="${index}" data-name="${obj.name}" data-desc="${obj.desc}">
               <ion-icon id="detailsBtn${index}" name="information-circle-outline"></ion-icon>
               <div class="prio${obj.priority}">${obj.priority}</div>
               <input type="date" name="" id="deadline" value="${obj.deadline}" disabled/>
