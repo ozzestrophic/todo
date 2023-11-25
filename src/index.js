@@ -1,5 +1,5 @@
 import "./style.css";
-// import { addDeleteToButton } from "./deleteTask";
+import { addDeleteToButton } from "./deleteTask";
 import { addDetailsFunctionTobutton } from "./taskDetails";
 
 const btn = document.querySelector("#newTask");
@@ -95,15 +95,4 @@ confirmBtn.addEventListener("click", function (event) {
   createTask();
 });
 
-// loop the create function to draw the page from the array
-
-function deleteTask(event) {
-  const index = event.target.parentElement.dataset.index;
-  inbox.splice(index, 1);
-  drawList(inbox);
-}
-
-function addDeleteToButton(index) {
-  const deleteBtn = document.querySelector(`#deleteBtn${index}`);
-  deleteBtn.addEventListener("click", deleteTask);
-}
+export { inbox, drawList };
