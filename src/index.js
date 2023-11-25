@@ -1,6 +1,7 @@
 import "./style.css";
 import { addDeleteToButton } from "./deleteTask";
 import { addDetailsFunctionTobutton } from "./taskDetails";
+import { addEditToButton } from "./editTask";
 
 const btn = document.querySelector("#newTask");
 const dialogbox = document.querySelector("#dialogBox");
@@ -9,18 +10,20 @@ btn.addEventListener("click", () => dialogbox.showModal());
 
 // create class for tasks
 class TaskObj {
-  constructor(name, desc, priority, deadline) {
+  constructor(name, desc, priority, deadline, project) {
     this.name = name;
     this.desc = desc;
     this.priority = priority;
     this.deadline = deadline;
+    this.project = project;
   }
 
-  editTask(name, desc, priority, deadline) {
+  editTask(name, desc, priority, deadline, project) {
     this.name = name;
     this.desc = desc;
     this.priority = priority;
     this.deadline = deadline;
+    this.project = project;
   }
 }
 
@@ -94,49 +97,6 @@ confirmBtn.addEventListener("click", function (event) {
 });
 
 // edit function
-
-function addEditToButton(index) {
-  const editBtn = document.querySelector(`#editBtn${index}`);
-  editBtn.addEventListener("click", openEditDialog);
-}
-
-function openEditDialog(event) {
-  const editDialogBox = document.querySelector("#editDialogBox");
-  editDialogBox.showModal();
-  createConfirmBtn(event);
-}
-
-function editTask(event) {
-  event.preventDefault();
-  editDialogBox.close();
-  const index = event.target.myParam;
-
-  loadEditorMethod(index);
-
-  drawList(inbox);
-}
-
-function loadEditorMethod(index) {
-  const taskName = document.querySelector("#taskNameEdit");
-  const descField = document.querySelector("#descFieldEdit");
-  const prioritySelect = document.querySelector("#prioritySelectEdit");
-  const deadlineSelect = document.querySelector("#deadlineSelectEdit");
-
-  inbox[index].editTask(
-    taskName.value,
-    descField.value,
-    prioritySelect.value,
-    deadlineSelect.value
-  );
-}
-
-function createConfirmBtn(event) {
-  const confirmEditBtn = document.querySelector("#confirmEditBtn");
-  const index = event.target.parentElement.dataset.index;
-
-  confirmEditBtn.myParam = index;
-  confirmEditBtn.addEventListener("click", editTask);
-}
 
 // open array at index to get the object
 // open the dialog box passing the old values
